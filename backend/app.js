@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const app = express();
 
 // Import Swagger packages and configuration
@@ -16,6 +17,7 @@ connectToDb();
 app.use(cors());  
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
+app.use(cookieParser());
 
 // Root route - you can document this too if needed
 app.get('/', (req,res)=>{
